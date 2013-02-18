@@ -1,10 +1,10 @@
 
-describe(ascoltatori.HeartbeatAscoltatore, function() {
+describe(HeartbeatAscoltatore, function() {
 
   behaveLikeAnAscoltatore();
 
   beforeEach(function(done) {
-    this.instance = new ascoltatori.HeartbeatAscoltatore(redisSettings());
+    this.instance = new HeartbeatAscoltatore(new ascoltatori.MemoryAscoltatore(), 'id');
     this.instance.on("ready", done);
   });
 
