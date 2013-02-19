@@ -15,5 +15,4 @@ describe(HeartbeatAscoltatore, function() {
     this.instance.close();
   });
 
-
 });
