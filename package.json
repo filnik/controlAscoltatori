@@ -28,7 +28,7 @@
         "sinon-chai"    : "~2.1.2",
         "redis"         : "~0.8.1",
         "hiredis"       : "~0.1.14",
-        "ascoltatori"   : "~0.1.6",
+        "ascoltatori"   : "*",
         "async"         : "~0.2.4",
         "underscore"    : "~1.4.4"
     },
