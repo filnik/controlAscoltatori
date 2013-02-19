@@ -1,3 +1,4 @@
+"use strict";
 
 var ascoltatoreHeartbeats = require('./ascoltatore_heartbeats');
 
@@ -7,8 +8,26 @@ describe(HeartbeatAscoltatore, function() {
   ascoltatoreHeartbeats();
 
   beforeEach(function(done) {
-    this.instance = new HeartbeatAscoltatore(new ascoltatori.MemoryAscoltatore(), 'id', 100, 2);
-    this.instance.on("ready", done);
+    var that = this;
+    this.instance = new HeartbeatAscoltatore({
+        ascoltatore     : new ascoltatori.MemoryAscoltatore(),
+        heartbeat       : 100,
+        deathTime       : 2
+    });
+
+    this.instance2 = new HeartbeatAscoltatore({
+      ascoltatore     : new ascoltatori.MemoryAscoltatore(),
+      heartbeat       : 100,
+      deathTime       : 2
+    });
+
+
+    this.instance.on("ready", function () {
+        that.instance2.on('ready', function () {
+            done();
+        });
+    });
+
   });
 
   afterEach(function() {
