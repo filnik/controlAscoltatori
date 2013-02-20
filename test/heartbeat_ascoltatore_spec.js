@@ -2,36 +2,36 @@
 
 var ascoltatoreHeartbeats = require('./ascoltatore_heartbeats');
 
-describe(HeartbeatAscoltatore, function() {
+describe(HeartbeatAscoltatore, function () {
 
-  behaveLikeAnAscoltatore();
-  ascoltatoreHeartbeats();
+    behaveLikeAnAscoltatore();
+    ascoltatoreHeartbeats();
 
-  beforeEach(function(done) {
-    var that = this;
-    this.instance = new HeartbeatAscoltatore({
-        ascoltatore     : new ascoltatori.MemoryAscoltatore(),
-        heartbeat       : 100,
-        deathTime       : 2
-    });
+    beforeEach(function(done) {
+        var that = this;
+        this.instance = new HeartbeatAscoltatore({
+            ascoltatore     : new ascoltatori.RedisAscoltatore(redisSettings),
+            id              : 'instance',
+            heartbeat       : 100,
+            deathTime       : 2
+        });
 
-    this.instance2 = new HeartbeatAscoltatore({
-      ascoltatore     : new ascoltatori.MemoryAscoltatore(),
-      heartbeat       : 100,
-      deathTime       : 2
-    });
+        this.instance2 = new HeartbeatAscoltatore({
+            ascoltatore       : new ascoltatori.RedisAscoltatore(redisSettings),
+            id                : 'instance2',
+            heartbeat         : 100,
+            deathTime         : 2
+        });
 
-
-    this.instance.on("ready", function () {
-        that.instance2.on('ready', function () {
-            done();
+        this.instance.on("ready", function () {
+            that.instance2.on('ready', function () {
+                done();
+            });
         });
     });
 
-  });
-
-  afterEach(function() {
-    this.instance.close();
-  });
+    afterEach(function () {
+        this.instance.close();
+    });
 
 });

@@ -1,3 +1,5 @@
+"use strict";
+
 global.sinon = require("sinon");
 global.chai = require("chai");
 global.expect = require("chai").expect;
@@ -5,8 +7,14 @@ global.async = require("async");
 global.ascoltatori = require("ascoltatori");
 global.HeartbeatAscoltatore = require('../lib/heartbeatAscoltatore.js');
 
-global.nextPort = function() {
-  return ++portCounter;
+global.nextPort = function () {
+    return ++portCounter;
+};
+
+global.redisSettings = function () {
+    return {
+        redis: require('redis')
+    };
 };
 
 global.behaveLikeAnAscoltatore = require("./behave_like_an_ascoltatore");

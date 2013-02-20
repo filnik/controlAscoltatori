@@ -31,7 +31,9 @@
         "ascoltatori"   : "*",
         "async"         : "~0.2.4",
         "underscore"    : "~1.4.4",
-        "node-uuid"     : "*"
+        "node-uuid"     : "*",
+        "debug"         : "*",
+        "tosource"      : "*"
     },
     "engines": { "node": "*" }
 }

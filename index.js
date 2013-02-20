@@ -1,1 +1,1 @@
-module.exports = require('lib/heartBeatAscoltatore.js');
+module.exports = require('lib/heartbeatAscoltatore.js');
