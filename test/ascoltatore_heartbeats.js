@@ -47,6 +47,7 @@ module.exports = function () {
     it("should not die before the close", function (done) {
         var that = this,
             youCanDie = false;
+
         this.instance.on('nodeDeath', function () {
             if (youCanDie) {
                 done();
@@ -67,6 +68,32 @@ module.exports = function () {
                 youCanDie = true;
                 that.instance2.close();
             }, 500);
+        });
+    });
+
+    it("should send an heartbeat event", function (done) {
+        var that = this;
+
+        this.instance.on('heartbeat', function(info){
+            if (that.instance2.getId() === info.id){
+                done();
+            }else{
+                done(new Error('heartbeat from id:' + info.id + 'instead of ' + that.instance2.getId()));
+            }
+        });
+
+        this.instance2.on('nodeDEath', function () {
+            done(new Error("The wrong node died"));
+        });
+        this.instance.subscribe('hello', function (channel, message) {
+            if (message !== 'world') {
+                done(new Error('wrong message received: ' + message));
+            }
+        });
+        this.instance2.publish('hello', "world", function () {
+            setTimeout(function delay() {
+                that.instance2.close();
+            }, 200);
         });
     });
 };
