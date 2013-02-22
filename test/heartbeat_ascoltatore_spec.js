@@ -13,14 +13,16 @@ describe(HeartbeatAscoltatore, function () {
             ascoltatore     : new ascoltatori.RedisAscoltatore(redisSettings),
             id              : 'instance',
             heartbeat       : 100,
-            deathTime       : 2
+            deathTime       : 2,
+            statsChannel    : statsChannel
         });
 
         this.instance2 = new HeartbeatAscoltatore({
-            ascoltatore       : new ascoltatori.RedisAscoltatore(redisSettings),
-            id                : 'instance2',
-            heartbeat         : 100,
-            deathTime         : 2
+            ascoltatore         : new ascoltatori.RedisAscoltatore(redisSettings),
+            id                  : 'instance2',
+            heartbeat           : 100,
+            deathTime           : 2,
+            statsChannel        : statsChannel
         });
 
         this.instance.on("ready", function () {

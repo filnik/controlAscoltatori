@@ -74,10 +74,10 @@ module.exports = function () {
     it("should send an heartbeat event", function (done) {
         var that = this;
 
-        this.instance.on('heartbeat', function(info){
-            if (that.instance2.getId() === info.id){
+        this.instance.subscribe(statsChannel + '/*', function (channel, message) {
+            if (that.instance2.getId() === message.id) {
                 done();
-            }else{
+            } else {
                 done(new Error('heartbeat from id:' + info.id + 'instead of ' + that.instance2.getId()));
             }
         });

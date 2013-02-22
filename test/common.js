@@ -11,6 +11,15 @@ global.nextPort = function () {
     return ++portCounter;
 };
 
+global.statsChannel = 'stats';
+global.statsWrap = function (done) {
+    return function (channel) {
+        if (channel.indexOf(statsChannel) === -1) {
+            done();
+        }
+    };
+};
+
 global.redisSettings = function () {
     return {
         redis: require('redis')
