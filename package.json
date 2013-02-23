@@ -1,14 +1,14 @@
 {
-  "name": "heartbeatAcoltatori",
-  "version": "0.0.1",
-  "description": "An overlay over the ascoltatori library to let you know when a node goes down and you cannot reach it anymore.",
+  "name": "controlAcoltatori",
+  "version": "0.0.2",
+  "description": "An overlay built on the top of the ascoltatori library to enrich it with new features",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/filnik/heartbeatAscoltatori"
+    "url": "https://github.com/filnik/controlAscoltatori"
   },
   "bugs": {
-    "url" : "http://github.com/filnik/heartbeatAscoltatori/issues"
+    "url" : "http://github.com/filnik/controlAscoltatori/issues"
   },
   "keywords": [
     "publish",

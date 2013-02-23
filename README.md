@@ -1,7 +1,9 @@
-Heartbeat Ascoltatori
+Control Ascoltatori
 ===========
 
-__Heartbeat Ascoltatori__ is an overlay built on the top of the Ascoltatori library ( https://github.com/mcollina/ascoltatori ).
+__Control Ascoltatori__ is an overlay library built on the top of the Ascoltatori library ( https://github.com/mcollina/ascoltatori ).
+
+This library provides a set of Ascoltatori of higher lever that wrap a basic Ascoltatore to improve its abilities.
 
 ## Usage
 
@@ -12,10 +14,17 @@ you will receive an object like: {channel: channel, id : id} with the infos of t
 If you feel one more option is missing, feel free to fork this library,
 add it, and then send a pull request.
 
+## Development
+
+The library is currently under develop and is currently only available the heartbeat ascoltatore. If you are interested on the project,
+feel free to send pull requests and contact the developers.
+
 ## Install
 
+This library is not currently on npm. When it will, you would install it with:
+
 ```
-npm install heartbeat-ascoltatori
+npm install control-ascoltatori
 ```
 
 ## LICENSE - "MIT License"
