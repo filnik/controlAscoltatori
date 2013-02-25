@@ -14,7 +14,7 @@ describe(HeartbeatAscoltatore, function () {
       id              : 'instance',
       heartbeat       : 100,
       deathTime       : 2,
-      statsChannel    : statsChannel
+      controlChannel  : controlChannel
     });
 
     this.instance2 = new HeartbeatAscoltatore({
@@ -22,7 +22,7 @@ describe(HeartbeatAscoltatore, function () {
       id                  : 'instance2',
       heartbeat           : 100,
       deathTime           : 2,
-      statsChannel        : statsChannel
+      controlChannel      : controlChannel
     });
 
     this.instance.on("ready", function () {

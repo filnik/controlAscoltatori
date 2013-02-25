@@ -74,7 +74,7 @@ module.exports = function () {
   it("should send an heartbeat event", function (done) {
     var that = this;
 
-    this.instance.subscribe(statsChannel + '/*', function (channel, message) {
+    this.instance.subscribe(controlChannel + '/*', function (channel, message) {
       if (that.instance2.getId() === message.id) {
         done();
       } else {

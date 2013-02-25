@@ -1,5 +1,4 @@
-
-var behave_like_an_ascoltatore = require("./behave_like_an_ascoltatore");
+var behave_like_an_ascoltatore = ascoltatori.behaveLikeAnAscoltatore;
 
 describe(ascoltatori, function () {
 

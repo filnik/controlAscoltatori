@@ -11,14 +11,7 @@ global.nextPort = function () {
   return ++portCounter;
 };
 
-global.statsChannel = 'stats';
-global.statsWrap = function (done) {
-  return function (channel) {
-    if (channel.indexOf(statsChannel) === -1) {
-      done();
-    }
-  };
-};
+global.controlChannel = 'control';
 
 global.redisSettings = function () {
   return {
@@ -26,7 +19,7 @@ global.redisSettings = function () {
   };
 };
 
-global.behaveLikeAnAscoltatore = require("./behave_like_an_ascoltatore");
+global.behaveLikeAnAscoltatore = ascoltatori.behaveLikeAnAscoltatore;
 global.wrap = require("ascoltatori").util.wrap;
 
 var sinonChai = require("sinon-chai");
