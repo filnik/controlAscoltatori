@@ -96,4 +96,17 @@ module.exports = function () {
       }, 200);
     });
   });
+
+  it("should emit a new event: newControlTopic correctly", function (done) {
+    var that = this;
+
+    that.instance.sub("hello/*", function () {}, function () {
+
+      that.instance.on('newControlTopic', function () {
+        done();
+      });
+
+      that.instance.pub("hello/42");
+    });
+  });
 };
